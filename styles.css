@@ -18,11 +18,13 @@ h1 {
 
 p {
   text-align: center;
+  font-size: 27px;
 }
 
 button {
   max-width: fit-content;
   align-self: center;
+  font-size: 20px;
 }
 
 .button-category {
@@ -33,4 +35,20 @@ button {
 .colored-button {
   background-color: blue;
   color: white;
+}
+
+.footer {
+  position: fixed;
+  padding: 10px;
+  bottom: 190px;
+  border-style: solid;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  left: 0;
+}
+
+nav > a {
+  font-size: 40px;
 }
