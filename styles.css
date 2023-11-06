@@ -7,3 +7,30 @@ h1 {
   padding-bottom: 5px;
   padding-top: 5px;
 }
+
+.question-card-box {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: black;
+  padding-left: 5px;
+}
+
+p {
+  text-align: center;
+}
+
+button {
+  max-width: fit-content;
+  align-self: center;
+}
+
+.button-category {
+  list-style-type: none;
+  display: inline;
+}
+
+.colored-button {
+  background-color: blue;
+  color: white;
+}
