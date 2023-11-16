@@ -87,7 +87,19 @@ a {
 }
 
 .toggledarkbutton {
-  font-size: 15px;
+  font-size: 17px;
+  color: white;
+  background-color: blue;
+}
+
+.darkBtnposition {
+  position: fixed;
+  bottom: 300px;
+}
+
+body.darkmode {
+  background-color: rgb(50, 51, 58);
+  color: white;
 }
 
 /*

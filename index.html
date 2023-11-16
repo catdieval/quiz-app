@@ -8,8 +8,9 @@
     />
     <title>Quiz App</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
   </head>
-  <body>
+  <body data-js="body">
     <main>
       <section class="titlebox">
         <h1>Quiz App</h1>
@@ -40,6 +41,10 @@
           🔖
         </button>
       </section>
+
+      <button type="button" class="toggledarkbutton" data-js="toggledarkbutton">
+        Toggle dark/light mode
+      </button>
       <section class="footer">
         <nav>
           <a href="index.html" aria-label="Home" title="Home" class="current"
