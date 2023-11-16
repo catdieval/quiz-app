@@ -21,7 +21,7 @@ p {
   font-size: 27px;
 }
 
-button {
+.answer-button {
   max-width: fit-content;
   align-self: center;
   font-size: 20px;
@@ -35,6 +35,16 @@ button {
 .colored-button {
   background-color: blue;
   color: white;
+  font-size: 20px;
+}
+
+.bookmark-button {
+  max-width: fit-content;
+  align-self: center;
+  font-size: 30px;
+  position: fixed;
+  bottom: 325px;
+  right: 50px;
 }
 
 .footer {
