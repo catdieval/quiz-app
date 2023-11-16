@@ -8,6 +8,18 @@ h1 {
   padding-top: 5px;
 }
 
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 23px;
+}
+
+h3 + p {
+  font-size: 20px;
+}
+
 .question-card-box {
   display: flex;
   flex-direction: column;
@@ -16,7 +28,7 @@ h1 {
   padding-left: 5px;
 }
 
-p {
+.question {
   text-align: center;
   font-size: 27px;
 }
@@ -66,6 +78,16 @@ a {
 
 .current {
   background-color: blue;
+}
+
+.user {
+  display: flex;
+  gap: 10%;
+  justify-content: center;
+}
+
+.toggledarkbutton {
+  font-size: 15px;
 }
 
 /*
