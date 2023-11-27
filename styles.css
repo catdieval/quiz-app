@@ -102,6 +102,10 @@ body.darkmode {
   color: white;
 }
 
+.selected-bookmark-button {
+  background-color: red;
+}
+
 /*
 a:link {
     text-decoration: none;
