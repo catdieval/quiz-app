@@ -55,7 +55,7 @@ h3 + p {
   align-self: center;
   font-size: 30px;
   position: fixed;
-  bottom: 325px;
+  top: 90px;
   right: 50px;
 }
 
@@ -104,6 +104,10 @@ body.darkmode {
 
 .selected-bookmark-button {
   background-color: red;
+}
+
+.hidden {
+  display: none;
 }
 
 /*
