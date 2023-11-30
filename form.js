@@ -34,3 +34,18 @@ formElement.addEventListener("submit", (event) => {
   newTag.textContent = tagInputText;
   newLi.append(newTag);
 });
+
+function calculateAmountLeft(jsAmountLeft, textAreaInput) {
+  const amountLeft = document.querySelector(jsAmountLeft);
+  const maxLength = textAreaInput.getAttribute("maxlength");
+  const updateAmountLeft = (value) => {
+    amountLeft.innerText = value;
+  };
+  updateAmountLeft(maxLength);
+  textAreaInput.addEventListener("input", () => {
+    updateAmountLeft(maxLength - textAreaInput.value.length);
+  });
+}
+
+calculateAmountLeft('[data-js="amountLeftQuestion"]', questionInput);
+calculateAmountLeft('[data-js="amountLeftAnswer"]', answerInput);

@@ -67,7 +67,7 @@ h3 + p {
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 50px;
+  height: 40px;
   left: 0;
 }
 
@@ -113,7 +113,11 @@ body.darkmode {
 .card-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
+}
+
+.display-length-characters {
+  color: gray;
 }
 
 /*
