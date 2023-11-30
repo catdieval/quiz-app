@@ -17,13 +17,21 @@
         <hr />
       </section>
       <section>
-        <form>
+        <form data-js="card-form" class="card-form">
           <label for="your-question" class="question">Your question:</label>
-          <textarea name="your-question" id="your-question"></textarea>
+          <textarea
+            name="your-question"
+            id="your-question"
+            data-js="question-input"
+          ></textarea>
           <label for="your-answer" class="question">Your answer:</label>
-          <textarea name="your-answer" id="your-answer"></textarea>
+          <textarea
+            name="your-answer"
+            id="your-answer"
+            data-js="answer-input"
+          ></textarea>
           <label for="tag" class="question">Tag:</label>
-          <input type="text" name="tag" id="tag" />
+          <input type="text" name="tag" id="tag" data-js="tag-input" />
           <button type="Submit" class="answer-button">Submit</button>
         </form>
       </section>

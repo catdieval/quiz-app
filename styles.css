@@ -62,7 +62,7 @@ h3 + p {
 .footer {
   position: fixed;
   padding: 10px;
-  bottom: 190px;
+  bottom: 0;
   border-style: solid;
   width: 100%;
   display: flex;
@@ -110,7 +110,7 @@ body.darkmode {
   display: none;
 }
 
-form {
+.card-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
