@@ -46,15 +46,14 @@ h3 + p {
   font-size: 20px;
 }
 
-.button-category {
-  list-style-type: none;
-  display: inline;
-}
-
 .colored-button {
   background-color: blue;
   color: white;
   font-size: 20px;
+  max-width: fit-content;
+  align-self: center;
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .bookmark-button {
