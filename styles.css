@@ -70,7 +70,7 @@ h3 + p {
   position: fixed;
   padding: 10px;
   bottom: 0;
-  border-style: solid;
+  border: solid 1px black;
   width: 100%;
   display: flex;
   justify-content: center;
