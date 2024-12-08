@@ -63,7 +63,7 @@ h3 + p {
   font-size: 30px;
   position: fixed;
   top: 90px;
-  right: 50px;
+  left: 70%;
 }
 
 .footer {
