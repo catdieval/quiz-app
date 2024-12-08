@@ -106,9 +106,9 @@ body.darkmode {
   background-color: red;
 }
 
-.hidden {
+/*.hidden {
   display: none;
-}
+} */
 
 .card-form {
   display: flex;
