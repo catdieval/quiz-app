@@ -36,7 +36,7 @@ h3 + p {
 }
 
 .question {
-  text-align: center;
+  align-self: center;
   font-size: 20px;
 }
 
@@ -46,14 +46,21 @@ h3 + p {
   font-size: 20px;
 }
 
-.colored-button {
+.category {
   background-color: blue;
   color: white;
-  font-size: 20px;
-  max-width: fit-content;
-  align-self: center;
+  font-size: 18px;
+  padding: 4px;
   margin-bottom: 8px;
   margin-top: 8px;
+}
+
+.tag-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  align-content: center;
 }
 
 .bookmark-button {
