@@ -14,20 +14,19 @@ formElement.addEventListener("submit", (event) => {
 
   event.target.reset();
 
-  const newBreak = document.createElement("br");
-  document.body.append(newBreak);
+  const container = document.querySelector("#form-container");
   const newQuestion = document.createElement("p");
   newQuestion.textContent = "New question: " + questionInputText;
   newQuestion.classList.add("question");
-  document.body.append(newQuestion);
+  container.appendChild(newQuestion);
   const newAnswer = document.createElement("p");
   newAnswer.textContent = "New answer: " + answerInputText;
   newAnswer.classList.add("question");
-  document.body.append(newAnswer);
+  container.appendChild(newAnswer);
   const newTag = document.createElement("p");
   newTag.textContent = "New tag: " + tagInputText;
   newTag.classList.add("question");
-  document.body.append(newTag);
+  container.appendChild(newTag);
   
   const obj = {
     newQuestion: questionInputText, newAnswer: answerInputText, newTag: tagInputText
@@ -39,9 +38,7 @@ formElement.addEventListener("submit", (event) => {
     arrayNewQuestions.push(obj);
   } else {
     arrayNewQuestions = [obj];
-  }
- 
-  
+  } 
   
   localStorage.setItem("array-new-questions", JSON.stringify(arrayNewQuestions)); 
 });
