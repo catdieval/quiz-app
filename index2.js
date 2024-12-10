@@ -25,6 +25,15 @@ if (JSON.parse(localStorage.getItem("array-new-questions")) !== null) {
            <p>Tag</p>
            <span class="category">${obj.newTag}</span>
         </div>
+        <button
+          type="button"
+          class="bookmark-button"
+          aria-label="Bookmark card"
+          title="Bookmark card"
+          data-js="toggle-bookmark-button"
+        >
+          🔖
+        </button>
 `;
   container.appendChild(cardAdded);
   });
