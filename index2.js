@@ -1,13 +1,5 @@
 console.clear();
 
-const toggleBookmarkBtn = document.querySelector(
-  '[data-js="toggle-bookmark-button"]'
-);
-
-toggleBookmarkBtn.addEventListener("click", () => {
-  toggleBookmarkBtn.classList.toggle("selected-bookmark-button");
-});
-
 if (JSON.parse(localStorage.getItem("array-new-questions")) !== null) {
     
   const container = document.querySelector(".card-container");
@@ -38,6 +30,15 @@ if (JSON.parse(localStorage.getItem("array-new-questions")) !== null) {
   container.appendChild(cardAdded);
   });
 
+  const listOfToggleBookmarkBtns = document.querySelectorAll('[data-js="toggle-bookmark-button"]');
+
+  for (let i = 0; i < listOfToggleBookmarkBtns.length; i++) {
+    const btn = listOfToggleBookmarkBtns[i];
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("selected-bookmark-button");
+    });
+  }
+
   const listOfAnswerElements = document.querySelectorAll('[data-js="answer"]');
   const listOfToggleAnswerBtns = document.querySelectorAll('[data-js="answer-button"]');
 
@@ -51,6 +52,15 @@ if (JSON.parse(localStorage.getItem("array-new-questions")) !== null) {
     });
   } 
 } else {
+
+  const toggleBookmarkBtn = document.querySelector(
+    '[data-js="toggle-bookmark-button"]'
+  );
+  
+  toggleBookmarkBtn.addEventListener("click", () => {
+    toggleBookmarkBtn.classList.toggle("selected-bookmark-button");
+  });
+
   const toggleAnswerBtn = document.querySelector('[data-js="answer-button"]');
   const answerElement = document.querySelector('[data-js="answer"]');
 
