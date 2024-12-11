@@ -10,13 +10,13 @@ main {
 h1 {
   text-align: center;
   font-size: 25px;
-  color: inherit;
+  color: black;
 }
 
 .titlebox {
   padding-bottom: 5px;
   padding-top: 5px;
-  background-color: inherit;
+  background-color: white;
   position: fixed;
   top: 0;
   left: calc(50% - 350px);
@@ -120,11 +120,6 @@ nav {
   font-size: 17px;
   color: white;
   background-color: blue;
-}
-
-.darkBtnposition {
-  position: fixed;
-  bottom: 300px;
 }
 
 body.darkmode {
