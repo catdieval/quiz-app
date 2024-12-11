@@ -1,4 +1,4 @@
-console.clear();
+//console.clear();
 
 const formElement = document.querySelector('[data-js="card-form"]');
 const questionInput = document.querySelector("[data-js=question-input]");
