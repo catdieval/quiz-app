@@ -29,18 +29,13 @@ formElement.addEventListener("submit", (event) => {
   container.appendChild(newTag);
   
   const obj = {
-    newQuestion: questionInputText, newAnswer: answerInputText, newTag: tagInputText
+    questionName: questionInputText, answerName: answerInputText, tagName: tagInputText, isBookmarkedValue: false
   };
   
-  let arrayNewQuestions;
-  if (JSON.parse(localStorage.getItem("array-new-questions")) !== null) {
-    arrayNewQuestions = JSON.parse(localStorage.getItem("array-new-questions"));
-    arrayNewQuestions.push(obj);
-  } else {
-    arrayNewQuestions = [obj];
-  } 
+  let arrayCards = JSON.parse(localStorage.getItem("array-cards"));
+  arrayCards.push(obj);
   
-  localStorage.setItem("array-new-questions", JSON.stringify(arrayNewQuestions)); 
+  localStorage.setItem("array-cards", JSON.stringify(arrayCards));
 });
 
 function calculateAmountLeft(jsAmountLeft, textAreaInput) {
