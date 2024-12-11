@@ -8,24 +8,15 @@ if (JSON.parse(localStorage.getItem("array-bookmarks")) !== null) {
     const cardBookmarked = document.createElement("section");
     cardBookmarked.classList.add("question-card-box");
     cardBookmarked.innerHTML = `
-      <p class="question" data-js="question">What property flips the axes in flexbox?</p>
+      <p class="question" data-js="question">${obj.questionName}</p>
         <button type="button" class="answer-button" data-js="answer-button">
           Hide answer
         </button>
-        <p class="question" data-js="answer">flex-direction</p> 
+        <p class="question" data-js="answer">${obj.answerName}</p> 
         <div class="tag-section">
            <p>Tag</p>
-           <span class="category" data-js="tag">#CSS</span>
-        </div>
-        <button
-          type="button"
-          class="bookmark-button"
-          aria-label="Bookmark card"
-          title="Bookmark card"
-          data-js="toggle-bookmark-button"
-        >
-          🔖
-        </button>          
+           <span class="category" data-js="tag">${obj.tagName}</span>
+        </div>         
       `;
     container.appendChild(cardBookmarked);  
   });
