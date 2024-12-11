@@ -10,10 +10,13 @@ main {
 h1 {
   text-align: center;
   font-size: 25px;
-  color: black;
 }
 
-.titlebox {
+h1.darkmode {
+  color: white;
+}
+
+section.titlebox {
   padding-bottom: 5px;
   padding-top: 5px;
   background-color: white;
@@ -22,6 +25,10 @@ h1 {
   left: calc(50% - 350px);
   width: 700px;
   z-index: 10;
+}
+
+section.titlebox.darkmode {
+  background-color: rgb(50, 51, 58);
 }
 
 h2 {
