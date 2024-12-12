@@ -63,10 +63,23 @@ h3 + p {
   position: relative;
 }
 
-.question {
+p.question {
   max-width: 300px;
   align-self: center;
   font-size: 18px;
+}
+
+p.form-outcome {
+  align-self: center;
+  font-size: 18px;
+}
+
+p.red {
+  color: red;
+}
+
+p.green {
+  color: green;
 }
 
 .answer-button {
@@ -150,13 +163,15 @@ body.darkmode {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 450px;
+  align-self: center;
 }
 
 .display-length-characters {
   color: gray;
 }
 
-#form-container {
+#form-outcome-container {
   width: 450px;
   align-self: center;
 }
