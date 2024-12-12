@@ -170,3 +170,13 @@ body.darkmode {
   width: 450px;
   align-self: center;
 }
+
+.delete-bookmark {
+  max-width: fit-content;
+  align-self: center;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0 4px;
+}
