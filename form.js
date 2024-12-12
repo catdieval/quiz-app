@@ -1,5 +1,9 @@
 //console.clear();
 
+import { setDarkLightMode } from "./utils/setDarkLightMode.js";
+
+setDarkLightMode();
+
 const formElement = document.querySelector('[data-js="card-form"]');
 const questionInput = document.querySelector("[data-js=question-input]");
 const answerInput = document.querySelector('[data-js="answer-input"]');
