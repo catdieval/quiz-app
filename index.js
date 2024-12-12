@@ -1,6 +1,5 @@
 //console.clear();
-/*localStorage.removeItem("array-bookmarks");
-localStorage.removeItem("array-cards");*/
+//localStorage.removeItem("array-bookmarks");
 
 import { setDarkLightMode } from "./utils/setDarkLightMode.js";
 
@@ -87,55 +86,53 @@ for (let i = 0; i < numberCards; i++) {
     const answer = answerElement.textContent;
     const question = questionElement.textContent;
     const tag = tagElement.textContent;
+
+    const obj = {
+      questionName: question, answerName: answer, tagName: tag
+    }; 
     
     let arrayBookmarks;
 
+    // if the user has bookmarked the card
     if (btnBookmark.hasAttribute("isBookmarked")) {
       arrayCards[i].isBookmarkedValue = true;
       
       localStorage.setItem("array-cards", JSON.stringify(arrayCards));
 
-      const obj = {
-        questionName: question, answerName: answer, tagName: tag, isBookmarkedValue: true
-      }; 
-
         if (JSON.parse(localStorage.getItem("array-bookmarks")) === null) {
           arrayBookmarks = [obj];
           
           localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
-        } else {
+        } else { 
+          // if arrayBookmarks already exists in localStorage
           arrayBookmarks = JSON.parse(localStorage.getItem("array-bookmarks"));
           
           const indexObjAlreadyBookmarked = arrayBookmarks.findIndex((object) => object.questionName === obj.questionName);
           
+          // if the card was previously not bookmarked, then add it to arrayBookmarks
           if (indexObjAlreadyBookmarked === -1) {
             arrayBookmarks.push(obj);
             
             localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
-          } else {
-            arrayBookmarks[indexObjAlreadyBookmarked].isBookmarkedValue = true;
-            
-            localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
-          }
+          } 
         }
     } else {
+      // if the user has unbookmarked the card
       arrayCards[i].isBookmarkedValue = false;
       
       localStorage.setItem("array-cards", JSON.stringify(arrayCards));
 
+      // if arrayBookmarks already exists in localStorage
       if (JSON.parse(localStorage.getItem("array-bookmarks")) !== null) {
         arrayBookmarks = JSON.parse(localStorage.getItem("array-bookmarks"));
-        
-        const obj = {
-          questionName: question, answerName: answer, tagName: tag, isBookmarkedValue: false
-        }; 
 
         const indexObjAlreadyBookmarked = arrayBookmarks.findIndex((object) => object.questionName === obj.questionName);
             
+        // If the card was previously bookmarked, then delete it from arrayBookmarks
         if (indexObjAlreadyBookmarked !== -1) {
-            arrayBookmarks[indexObjAlreadyBookmarked].isBookmarkedValue = false;
+          arrayBookmarks.splice(indexObjAlreadyBookmarked, 1);
             
-            localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
+          localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
         }
       }
     }
