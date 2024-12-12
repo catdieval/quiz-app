@@ -138,11 +138,6 @@ nav {
   background-color: cyan;
 }
 
-.user {
-  display: flex;
-  justify-content: center;
-}
-
 .toggledarkbutton {
   font-size: 18px;
   color: white;
