@@ -1,5 +1,3 @@
-//console.clear();
-
 import { setDarkLightMode } from "./utils/setDarkLightMode.js";
 
 setDarkLightMode();

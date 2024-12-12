@@ -1,6 +1,3 @@
-//console.clear();
-//localStorage.removeItem("array-bookmarks");
-
 import { setDarkLightMode } from "./utils/setDarkLightMode.js";
 
 setDarkLightMode();
