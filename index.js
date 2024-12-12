@@ -69,14 +69,14 @@ for (let i = 0; i < numberCards; i++) {
   if (arrayCards[i].isBookmarkedValue === true) {
     btnBookmark.classList.add("selected-bookmark-button");
     btnBookmark.setAttribute("isBookmarked", "");
-    btnBookmark.title = "Click to unbookmark card";
-    btnBookmark.setAttribute("aria-label", "Click to unbookmark card"); 
+    btnBookmark.title = "Delete bookmark";
+    btnBookmark.setAttribute("aria-label", "Delete bookmark"); 
 
   } else {
     btnBookmark.classList.remove("selected-bookmark-button");
     btnBookmark.removeAttribute("isBookmarked");
-    btnBookmark.title = "Click to bookmark card";
-    btnBookmark.setAttribute("aria-label", "Click to bookmark card");
+    btnBookmark.title = "Bookmark card";
+    btnBookmark.setAttribute("aria-label", "Bookmark card");
   }
 
   btnBookmark.addEventListener("click", () => {
@@ -99,8 +99,8 @@ for (let i = 0; i < numberCards; i++) {
       
       localStorage.setItem("array-cards", JSON.stringify(arrayCards));
 
-      btnBookmark.title = "Click to unbookmark card";
-      btnBookmark.setAttribute("aria-label", "Click to unbookmark card"); 
+      btnBookmark.title = "Delete bookmark";
+      btnBookmark.setAttribute("aria-label", "Delete bookmark"); 
 
         if (JSON.parse(localStorage.getItem("array-bookmarks")) === null) {
           arrayBookmarks = [obj];
@@ -125,8 +125,8 @@ for (let i = 0; i < numberCards; i++) {
       
       localStorage.setItem("array-cards", JSON.stringify(arrayCards));
 
-      btnBookmark.title = "Click to bookmark card";
-      btnBookmark.setAttribute("aria-label", "Click to bookmark card");
+      btnBookmark.title = "Bookmark card";
+      btnBookmark.setAttribute("aria-label", "Bookmark card");
 
       // if arrayBookmarks already exists in localStorage
       if (JSON.parse(localStorage.getItem("array-bookmarks")) !== null) {
