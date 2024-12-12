@@ -2,6 +2,10 @@
 /*localStorage.removeItem("array-bookmarks");
 localStorage.removeItem("array-cards");*/
 
+import { setDarkLightMode } from "./utils/setDarkLightMode.js";
+
+setDarkLightMode();
+
 if (JSON.parse(localStorage.getItem("array-cards")) === null) {
   const answerElement = document.querySelector('[data-js="answer"]');
   const questionElement = document.querySelector('[data-js="question"]');
