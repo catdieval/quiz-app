@@ -47,6 +47,8 @@ h3 + p {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 450px;
+  align-self: center;
 }
 
 .question-card-box {
@@ -59,6 +61,7 @@ h3 + p {
 }
 
 .question {
+  max-width: 300px;
   align-self: center;
   font-size: 18px;
 }
@@ -76,6 +79,7 @@ h3 + p {
   padding: 4px;
   margin-bottom: 8px;
   margin-top: 8px;
+  height: 20px;
 }
 
 .tag-section {
@@ -89,14 +93,14 @@ h3 + p {
 .bookmark-button {
   max-width: fit-content;
   align-self: center;
-  font-size: 30px;
+  font-size: 25px;
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
 a {
-  font-size: 35px;
+  font-size: 30px;
   text-decoration: none;
 }
 
@@ -148,3 +152,7 @@ body.darkmode {
   color: gray;
 }
 
+#form-container {
+  width: 450px;
+  align-self: center;
+}
