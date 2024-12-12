@@ -1,5 +1,9 @@
 //console.clear();
 
+import { setDarkLightMode } from "./utils/setDarkLightMode.js";
+
+setDarkLightMode();
+
 const container = document.querySelector(".card-container");
 
 if (JSON.parse(localStorage.getItem("array-bookmarks")) !== null) {
