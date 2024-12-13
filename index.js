@@ -23,13 +23,18 @@ if (JSON.parse(localStorage.getItem("array-cards")) === null) {
 const container = document.querySelector(".card-container");
 let arrayCards = JSON.parse(localStorage.getItem("array-cards"));
 
+let arrayBookmarks;
+if (JSON.parse(localStorage.getItem("array-bookmarks")) !== null) {
+  arrayBookmarks = JSON.parse(localStorage.getItem("array-bookmarks"));
+}
+
 const numberCards = arrayCards.length;
 
-if (numberCards > 1) {
 // index 0 is the already present card
-  let newCards = arrayCards.slice(1);
+let arrayNewCards = arrayCards.slice(1);;
 
-  newCards.map((obj) => {
+if (numberCards > 1) {
+  arrayNewCards.map((obj) => {
     const cardAdded = document.createElement("section");
     cardAdded.classList.add("question-card-box");
     cardAdded.innerHTML = `
@@ -49,6 +54,15 @@ if (numberCards > 1) {
           >
             🔖
           </button>
+          <button
+            type="button"
+            class="delete-card"
+            aria-label="Delete card"
+            title="Delete card"
+            data-js="delete-card-button"
+          >
+            ✖
+          </button>  
   `;
     container.appendChild(cardAdded);
   });
@@ -59,6 +73,7 @@ const listOfToggleBookmarkBtns = document.querySelectorAll('[data-js="toggle-boo
 const listOfQuestions = document.querySelectorAll('[data-js="question"]');
 const listOfAnswers = document.querySelectorAll('[data-js="answer"]');
 const listOfTags = document.querySelectorAll('[data-js="tag"]');
+const listOfDeleteBtns = document.querySelectorAll('[data-js="delete-card-button"]');
 
 for (let i = 0; i < numberCards; i++) {
   const btnBookmark = listOfToggleBookmarkBtns[i];
@@ -80,19 +95,17 @@ for (let i = 0; i < numberCards; i++) {
     btnBookmark.setAttribute("aria-label", "Bookmark card");
   }
 
+  const answer = answerElement.textContent;
+  const question = questionElement.textContent;
+  const tag = tagElement.textContent;
+
+  const obj = {
+    questionName: question, answerName: answer, tagName: tag
+  };
+
   btnBookmark.addEventListener("click", () => {
     btnBookmark.classList.toggle("selected-bookmark-button");
     btnBookmark.toggleAttribute("isBookmarked");
-
-    const answer = answerElement.textContent;
-    const question = questionElement.textContent;
-    const tag = tagElement.textContent;
-
-    const obj = {
-      questionName: question, answerName: answer, tagName: tag
-    }; 
-    
-    let arrayBookmarks;
 
     const dialogMessage = document.createElement("p");
     const dialogBookmark = document.createElement("dialog");  
@@ -113,8 +126,6 @@ for (let i = 0; i < numberCards; i++) {
           localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
         } else { 
           // if arrayBookmarks already exists in localStorage
-          arrayBookmarks = JSON.parse(localStorage.getItem("array-bookmarks"));
-          
           const indexObjAlreadyBookmarked = arrayBookmarks.findIndex((object) => object.questionName === obj.questionName);
           
           // if the card was previously not bookmarked, then add it to arrayBookmarks
@@ -138,8 +149,6 @@ for (let i = 0; i < numberCards; i++) {
 
       // if arrayBookmarks already exists in localStorage
       if (JSON.parse(localStorage.getItem("array-bookmarks")) !== null) {
-        arrayBookmarks = JSON.parse(localStorage.getItem("array-bookmarks"));
-
         const indexObjAlreadyBookmarked = arrayBookmarks.findIndex((object) => object.questionName === obj.questionName);
             
         // If the card was previously bookmarked, then delete it from arrayBookmarks
@@ -159,12 +168,31 @@ for (let i = 0; i < numberCards; i++) {
     setTimeout(() => {
         container.removeChild(dialogBookmark);
     }, 2000);
-
   });
 
   btnAnswer.addEventListener("click", () => {
     btnAnswer.textContent = (answerElement.hasAttribute("hidden")) ? "Hide answer": "Show answer";
     answerElement.toggleAttribute("hidden");
   });
+
+  if (i > 0) {
+  listOfDeleteBtns[i - 1].addEventListener("click", () => {
+    const indexObjAlreadyBookmarked = arrayBookmarks.findIndex((object) => object.questionName === obj.questionName);
+    
+    // If the card is bookmarked, then delete it from arrayBookmarks
+    if (indexObjAlreadyBookmarked !== -1) {
+      arrayBookmarks.splice(indexObjAlreadyBookmarked, 1);
+            
+      localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
+    }
+
+    arrayCards.splice(i, 1);
+
+    localStorage.setItem("array-cards", JSON.stringify(arrayCards)); 
+
+    // Reloads the page index.html, to force the number of displayed cards to update
+    window.location.reload();
+  });
+  }
 }
 
