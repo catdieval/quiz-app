@@ -19,7 +19,7 @@ Quiz-App is a flashcard web application, written with HTML, CSS and vanilla Java
   
 - 👤 Profile: a view of the user profile for the user John Doe.
   - It displays the name, an "About me" section and a "Settings" section including one setting
-  that the user can modify: the choice between light and dark themes, through a toggling button.
+  that the user can modify: the choice between light and dark themes, through a toggling button ☀️ / 🌙.
   - Initially the theme is light.
   - Clicking on the button puts the dark theme on all pages. Clicking it again puts back all pages in the light theme.
 
