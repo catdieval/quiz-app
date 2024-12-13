@@ -7,6 +7,13 @@ const questionInput = document.querySelector("[data-js=question-input]");
 const answerInput = document.querySelector('[data-js="answer-input"]');
 const tagInput = document.querySelector('[data-js="tag-input"]');
 
+/* the two textarea elements have sometimes the cursor 
+not showing at the beginning but further out when
+the user clicks in the textarea, so their text content
+must be systematically reset at page load*/
+questionInput.textContent = "";
+answerInput.textContent = "";
+
 formElement.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -21,42 +28,35 @@ formElement.addEventListener("submit", (event) => {
   };
 
   let arrayCards = JSON.parse(localStorage.getItem("array-cards"));
-
-  const indexCardAlreadyThere = arrayCards.findIndex((object) => object.questionName === obj.questionName);
   
   const container = document.querySelector("#form-outcome-container");
   container.innerHTML = "";
   
-    const newQuestion = document.createElement("p");
-    newQuestion.textContent = "New question: " + questionInputText;
-    newQuestion.classList.add("form-outcome");
-    container.appendChild(newQuestion);
-    const newAnswer = document.createElement("p");
-    newAnswer.textContent = "New answer: " + answerInputText;
-    newAnswer.classList.add("form-outcome");
-    container.appendChild(newAnswer);
-    const newTag = document.createElement("p");
-    newTag.textContent = "New tag: " + tagInputText;
-    newTag.classList.add("form-outcome");
-    container.appendChild(newTag);
+    try {
+      const indexCardAlreadyThere = arrayCards.findIndex((object) => object.questionName === obj.questionName);
 
-  if (indexCardAlreadyThere === -1) {
-    const newSuccess = document.createElement("p");
-    newSuccess.textContent = "Success! A new card was added to your list!"
-    newSuccess.classList.add("form-outcome", "green");
-    container.appendChild(newSuccess);
+      // If new card is not already in arrayCards
+      if (indexCardAlreadyThere === -1) {
+        const newSuccess = document.createElement("p");
+        newSuccess.textContent = "Success! A new card was added to your list!"
+        newSuccess.classList.add("form-outcome", "green");
+        container.appendChild(newSuccess);
 
-    arrayCards.push(obj);
+        arrayCards.push(obj);
   
-    localStorage.setItem("array-cards", JSON.stringify(arrayCards)); 
+        localStorage.setItem("array-cards", JSON.stringify(arrayCards)); 
+      } else {
+        // if new card is already in arrayCards
+        throw new Error(`Error! There is already a card matching the question "${questionInputText}". Therefore NO card was added to your list!`);
+      }
 
-  } else {
-      
-    const newError = document.createElement("p");
-    newError.textContent = "Error! There is already a card matching the question you provided. Therefore NO card was added to your list!";
-    newError.classList.add("form-outcome", "red");
-    container.appendChild(newError);
-  }
+    } catch(error) {
+      const newError = document.createElement("p");
+      newError.textContent = error.message;
+      newError.classList.add("form-outcome", "red");
+      container.appendChild(newError);
+    }
+
 });
 
 function calculateAmountLeft(jsAmountLeft, textAreaInput) {
