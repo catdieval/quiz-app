@@ -1,3 +1,4 @@
+# Quiz-App
 
 Quiz-App is a flashcard web application, written with HTML, CSS and vanilla JavaScript.
 
