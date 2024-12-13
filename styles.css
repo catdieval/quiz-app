@@ -3,7 +3,6 @@ main {
   display: flex;
   flex-direction: column;
   max-width: 700px;
-  align-content: center;
   margin: auto;
 }
 
@@ -18,7 +17,6 @@ dialog {
   padding-bottom: 5px;
   position: fixed;
   top: calc(50vh - 20px);
-  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,7 +87,6 @@ p.question {
 
 p.form-outcome {
   align-self: center;
-  
 }
 
 p.red {
