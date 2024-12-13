@@ -22,6 +22,7 @@ if (JSON.parse(localStorage.getItem("array-cards")) === null) {
 
 const container = document.querySelector(".card-container");
 let arrayCards = JSON.parse(localStorage.getItem("array-cards"));
+
 const numberCards = arrayCards.length;
 
 if (numberCards > 1) {
@@ -93,6 +94,10 @@ for (let i = 0; i < numberCards; i++) {
     
     let arrayBookmarks;
 
+    const dialogMessage = document.createElement("p");
+    const dialogBookmark = document.createElement("dialog");  
+    dialogBookmark.setAttribute("open", "");
+
     // if the user has bookmarked the card
     if (btnBookmark.hasAttribute("isBookmarked")) {
       arrayCards[i].isBookmarkedValue = true;
@@ -119,6 +124,9 @@ for (let i = 0; i < numberCards; i++) {
             localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
           } 
         }
+      
+      dialogMessage.textContent = "Card added to bookmarks!";
+
     } else {
       // if the user has unbookmarked the card
       arrayCards[i].isBookmarkedValue = false;
@@ -141,7 +149,17 @@ for (let i = 0; i < numberCards; i++) {
           localStorage.setItem("array-bookmarks", JSON.stringify(arrayBookmarks)); 
         }
       }
+
+      dialogMessage.textContent = "Card deleted from bookmarks!";
+
     }
+
+    dialogBookmark.appendChild(dialogMessage);
+    container.appendChild(dialogBookmark);
+    setTimeout(() => {
+        container.removeChild(dialogBookmark);
+    }, 2000);
+
   });
 
   btnAnswer.addEventListener("click", () => {
