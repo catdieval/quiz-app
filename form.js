@@ -13,6 +13,22 @@ the user clicks in the textarea, so their text content
 must be systematically reset at page load*/
 questionInput.textContent = "";
 answerInput.textContent = "";
+tagInput.textContent = "";
+
+function calculateAmountLeft(jsAmountLeft, textAreaInput) {
+  const amountLeft = document.querySelector(jsAmountLeft);
+  const maxLength = textAreaInput.getAttribute("maxlength");
+  const updateAmountLeft = (value) => {
+    amountLeft.innerText = value;
+  };
+  updateAmountLeft(maxLength);
+  textAreaInput.addEventListener("input", () => {
+    updateAmountLeft(maxLength - textAreaInput.value.length);
+  });
+}
+
+calculateAmountLeft('[data-js="amountLeftQuestion"]', questionInput);
+calculateAmountLeft('[data-js="amountLeftAnswer"]', answerInput);
 
 formElement.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -58,18 +74,3 @@ formElement.addEventListener("submit", (event) => {
     }
 
 });
-
-function calculateAmountLeft(jsAmountLeft, textAreaInput) {
-  const amountLeft = document.querySelector(jsAmountLeft);
-  const maxLength = textAreaInput.getAttribute("maxlength");
-  const updateAmountLeft = (value) => {
-    amountLeft.innerText = value;
-  };
-  updateAmountLeft(maxLength);
-  textAreaInput.addEventListener("input", () => {
-    updateAmountLeft(maxLength - textAreaInput.value.length);
-  });
-}
-
-calculateAmountLeft('[data-js="amountLeftQuestion"]', questionInput);
-calculateAmountLeft('[data-js="amountLeftAnswer"]', answerInput);
