@@ -16,49 +16,70 @@
         <h1 data-js="h1">Quiz App</h1>
         <hr data-js="hr" />
       </section>
-      <br/><br/><br/><br/><br/>
-        <form data-js="card-form" class="card-form">
-          <label for="your-question" class="question">Your question:</label>
-          <textarea
-            maxlength="150"
-            name="your-question"
-            id="your-question"
-            data-js="question-input"
-          ></textarea>
-          <p class="display-length-characters">
-            (<span data-js="amountLeftQuestion"></span> characters left)
-          </p>
-          <label for="your-answer" class="question">Your answer:</label>
-          <textarea
-            maxlength="150"
-            name="your-answer"
-            id="your-answer"
-            data-js="answer-input"
-          ></textarea>
-          <p class="display-length-characters">
-            (<span data-js="amountLeftAnswer"></span> characters left)
-          </p>
-          <label for="tag" class="question">Tag:</label>
-          <input type="text" name="tag" id="tag" data-js="tag-input" />
-          <br/>
-          <button type="submit" class="answer-button">Submit</button>
-        </form>
+      <br/><br/><br/><br/>
+      <h2>Create a new card</h2>
+      <br/>
+      <form data-js="card-form" class="card-form">
+        <label for="your-question">Your question:</label>
+        <textarea
+          maxlength="150"
+          name="your-question"
+          id="your-question"
+          data-js="question-input"
+          >
+        </textarea>
+        <p class="display-length-characters">
+          (<span data-js="amountLeftQuestion"></span> characters left)
+        </p>
+        <label for="your-answer">Your answer:</label>
+        <textarea
+          maxlength="150"
+          name="your-answer"
+          id="your-answer"
+          data-js="answer-input"
+        >
+        </textarea>
+        <p class="display-length-characters">
+          (<span data-js="amountLeftAnswer"></span> characters left)
+        </p>
+        <label for="tag">Tag:</label>
+        <input type="text" name="tag" id="tag" data-js="tag-input" />
+        <br/>
+        <button type="submit" class="answer-button">Submit</button>
+      </form>
       <section id="form-outcome-container"></section>
       <br/><br/><br/><br/><br/>
-        <nav>
-          <a href="index.html" aria-label="Home" title="Home">🏠</a>
-          <a href="bookmarks.html" aria-label="Bookmarks" title="Bookmarks"
-            >🔖</a
-          >
-          <a href="profile.html" aria-label="Profile" title="Profile">👤</a>
-          <a
-            href="form.html"
-            aria-label="Create card"
-            title="Create card"
-            class="current"
-            >➕</a
-          >
-        </nav>
+      <nav>
+        <a 
+          href="index.html" 
+          aria-label="Home" 
+          title="Home"
+        >
+          🏠
+        </a>
+        <a 
+          href="bookmarks.html" 
+          aria-label="Bookmarks" 
+          title="Bookmarks"
+        >
+          🔖
+        </a>
+        <a 
+          href="profile.html" 
+          aria-label="Profile" 
+          title="Profile"
+        >
+          👤
+        </a>
+        <a
+          href="form.html"
+          aria-label="Create new card"
+          title="Create new card"
+          class="current"
+        >
+          ➕
+        </a>
+      </nav>
     </main>
   </body>
 </html>
