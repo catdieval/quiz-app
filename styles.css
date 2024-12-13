@@ -11,6 +11,20 @@ button {
   cursor: pointer;
 }
 
+dialog {
+  background-color: aquamarine;
+  border-radius: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: fixed;
+  top: calc(50vh - 20px);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40px;
+}
+
 p {
   font-size: 18px;
 }
