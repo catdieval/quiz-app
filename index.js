@@ -165,9 +165,10 @@ for (let i = 0; i < numberCards; i++) {
 
     dialogBookmark.appendChild(dialogMessage);
     container.appendChild(dialogBookmark);
-    setTimeout(() => {
+    timeoutID = setTimeout(() => {
         container.removeChild(dialogBookmark);
     }, 2000);
+    clearTimeout(timeoutID);
   });
 
   btnAnswer.addEventListener("click", () => {
